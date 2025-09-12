@@ -1,6 +1,4 @@
-package com.geometrics.settings.fragments.themes;
-
-import com.android.internal.logging.nano.MetricsProto;
+package com.prism.settings.fragments.quicksettings;
 
 import android.os.Bundle;
 import android.content.Intent;
@@ -25,6 +23,7 @@ import android.text.TextUtils;
 import android.view.View;
 
 import com.android.settings.SettingsPreferenceFragment;
+import com.android.internal.logging.nano.MetricsProto;
 import com.android.settings.Utils;
 import android.util.Log;
 
@@ -34,8 +33,7 @@ import java.util.Map;
 import java.util.HashMap;
 import java.util.Collections;
 
-
-public class Themes extends SettingsPreferenceFragment implements Preference.OnPreferenceChangeListener {
+public class QuickSettings extends SettingsPreferenceFragment implements Preference.OnPreferenceChangeListener {
 
     @Override
     public boolean onPreferenceChange(Preference preference, Object newValue) {
@@ -44,14 +42,14 @@ public class Themes extends SettingsPreferenceFragment implements Preference.OnP
 
     @Override
     public int getMetricsCategory() {
-        return MetricsProto.MetricsEvent.GEOMETRICS;
+        return MetricsProto.MetricsEvent.PRISM;
     }
 
     @Override
     public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
-        setPreferencesFromResource(R.xml.themes_settings, rootKey);
+        setPreferencesFromResource(R.xml.quicksettings_settings, rootKey);
 
-        getActivity().setTitle(R.string.geometrics_themes_dashboard_title);
+        getActivity().setTitle(R.string.prism_qs_dashboard_title);
 
     }
 }

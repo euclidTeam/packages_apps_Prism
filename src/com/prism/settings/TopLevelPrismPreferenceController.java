@@ -14,16 +14,16 @@
  * limitations under the License.
  */
 
-package com.geometrics.settings;
+package com.prism.settings;
 
 import android.content.Context;
 
 import com.android.settings.R;
 import com.android.settings.core.BasePreferenceController;
 
-public class TopLevelGeometricsPreferenceController extends BasePreferenceController {
+public class TopLevelPrismPreferenceController extends BasePreferenceController {
 
-    public TopLevelGeometricsPreferenceController(Context context,
+    public TopLevelPrismPreferenceController(Context context,
             String preferenceKey) {
         super(context, preferenceKey);
     }

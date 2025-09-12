@@ -1,15 +1,22 @@
-package com.geometrics.settings.fragments.statusbar;
+package com.prism.settings.fragments.lockscreen;
 
 import android.os.Bundle;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
+import android.os.RemoteException;
+import android.os.ServiceManager;
 import android.os.UserHandle;
 import android.content.ContentResolver;
+import android.content.Context;
+import android.content.pm.PackageManager.NameNotFoundException;
+import android.hardware.fingerprint.FingerprintManager;
 import android.content.res.Resources;
 import androidx.preference.ListPreference;
 import androidx.preference.Preference;
 import androidx.preference.PreferenceGroup;
+import android.content.SharedPreferences;
+import androidx.preference.PreferenceManager;
 import androidx.preference.PreferenceScreen;
 import androidx.preference.PreferenceCategory;
 import androidx.preference.Preference.OnPreferenceChangeListener;
@@ -20,7 +27,9 @@ import com.android.settings.R;
 
 import java.util.Locale;
 import android.text.TextUtils;
+import android.view.IWindowManager;
 import android.view.View;
+import android.view.WindowManagerGlobal;
 
 import com.android.settings.SettingsPreferenceFragment;
 import com.android.internal.logging.nano.MetricsProto;
@@ -33,7 +42,7 @@ import java.util.Map;
 import java.util.HashMap;
 import java.util.Collections;
 
-public class StatusBar extends SettingsPreferenceFragment implements Preference.OnPreferenceChangeListener {
+public class Lockscreen extends SettingsPreferenceFragment implements Preference.OnPreferenceChangeListener {
 
     @Override
     public boolean onPreferenceChange(Preference preference, Object newValue) {
@@ -42,14 +51,14 @@ public class StatusBar extends SettingsPreferenceFragment implements Preference.
 
     @Override
     public int getMetricsCategory() {
-        return MetricsProto.MetricsEvent.GEOMETRICS;
+        return MetricsProto.MetricsEvent.PRISM;
     }
 
     @Override
     public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
-        setPreferencesFromResource(R.xml.statusbar_settings, rootKey);
+        setPreferencesFromResource(R.xml.lockscreen_settings, rootKey);
 
-        getActivity().setTitle(R.string.geometrics_statusbar_dashboard_title);
+        getActivity().setTitle(R.string.prism_lockscreen_dashboard_title);
 
     }
 }

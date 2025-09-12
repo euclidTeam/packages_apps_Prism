@@ -14,19 +14,19 @@
  * limitations under the License.
  */
 
-package com.geomterics.settings.fragments
+package com.prism.settings.fragments
 
 import androidx.preference.Preference
 
 import com.android.settings.dashboard.DashboardFragment
 
-abstract class GeometricsDashboardFragment: DashboardFragment() {
+abstract class PrismDashboardFragment: DashboardFragment() {
 
     override fun onDisplayPreferenceDialog(preference: Preference) {
         super.onDisplayPreferenceDialog(preference)
     }
 
     companion object {
-        const val REQUEST_KEY = "GeometricsDashboardFragment#RequestKey"
+        const val REQUEST_KEY = "PrismDashboardFragment#RequestKey"
     }
 }

@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2014-2021 The BlissRoms Project
+ * Copyright (C) 2025  euclidOS
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.geometrics.settings;
+package com.prism.settings;
 
 import android.app.Activity;
 import android.content.Context;
@@ -33,17 +33,17 @@ import java.util.ArrayList;
 import java.util.List;
 
 @SearchIndexable(forTarget = SearchIndexable.ALL & ~SearchIndexable.ARC)
-public class Geometrics extends SettingsPreferenceFragment {
+public class PrismSettings extends SettingsPreferenceFragment {
 
     @Override
     public void onCreate(Bundle icicle) {
         super.onCreate(icicle);
-        addPreferencesFromResource(R.xml.geometrics_settings);
+        addPreferencesFromResource(R.xml.prism_settings);
     }
 
       @Override
     public int getMetricsCategory() {
-        return MetricsProto.MetricsEvent.GEOMETRICS;
+        return MetricsProto.MetricsEvent.PRISM;
     }
 
     /**
@@ -51,5 +51,5 @@ public class Geometrics extends SettingsPreferenceFragment {
      */
 
     public static final BaseSearchIndexProvider SEARCH_INDEX_DATA_PROVIDER =
-            new BaseSearchIndexProvider(R.xml.geometrics_settings);
+            new BaseSearchIndexProvider(R.xml.prism_settings);
 }

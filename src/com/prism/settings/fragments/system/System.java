@@ -1,4 +1,4 @@
-package com.geometrics.settings.fragments.system;
+package com.prism.settings.fragments.system;
 
 import com.android.internal.logging.nano.MetricsProto;
 
@@ -43,14 +43,14 @@ public class System extends SettingsPreferenceFragment implements Preference.OnP
 
     @Override
     public int getMetricsCategory() {
-        return MetricsProto.MetricsEvent.GEOMETRICS;
+        return MetricsProto.MetricsEvent.PRISM;
     }
 
     @Override
     public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
         setPreferencesFromResource(R.xml.system_settings, rootKey);
 
-        getActivity().setTitle(R.string.geometrics_system_dashboard_title);
+        getActivity().setTitle(R.string.prism_system_dashboard_title);
 
     }
 }

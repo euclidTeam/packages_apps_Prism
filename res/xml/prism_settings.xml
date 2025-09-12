@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" xmlns:settings="http://schemas.android.com/apk/res/com.android.settings" android:title="@string/prism_dashboard_title">
+  <com.android.settingslib.widget.IllustrationPreference android:key="prism_illustration" settings:lottie_rawRes="@raw/prism_illustration" android:order="-1001"/>
+  <Preference android:key="lockscreen_category" android:title="@string/prism_lockscreen_dashboard_title" android:fragment="com.prism.settings.fragments.lockscreen.Lockscreen" android:icon="@drawable/ic_lockscreen"/>
+  <Preference android:key="statusbar_category" android:title="@string/prism_statusbar_dashboard_title" android:fragment="com.prism.settings.fragments.statusbar.StatusBar" android:icon="@drawable/ic_statusbar"/>
+  <Preference android:key="quicksettings_category" android:title="@string/prism_qs_dashboard_title" android:fragment="com.prism.settings.fragments.quicksettings.QuickSettings" android:icon="@drawable/ic_qs"/>
+  <Preference android:key="themes_category" android:title="@string/prism_themes_dashboard_title" android:fragment="com.prism.settings.fragments.themes.Themes" android:icon="@drawable/ic_themes"/>
+  <Preference android:key="system_category" android:title="@string/prism_system_dashboard_title" android:fragment="com.prism.settings.fragments.system.System" android:icon="@drawable/ic_system"/>
+</PreferenceScreen>

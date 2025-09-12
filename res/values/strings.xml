@@ -1,14 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-
     <!-- Pixoid -->
-    <string name="geometrics_dashboard_title">Geometrics</string>
-
-    <string name="geometrics_lockscreen_dashboard_title">LockScreen</string>
-    <string name="geometrics_themes_dashboard_title">Themes</string>
-    <string name="geometrics_statusbar_dashboard_title">StatusBar</string>
-    <string name="geometrics_qs_dashboard_title">Quick Settings</string>
-    <string name="geometrics_system_dashboard_title">System</string>
-
+    <string name="prism_dashboard_title">
+Prism</string>
+    <string name="prism_lockscreen_dashboard_title">
+LockScreen</string>
+    <string name="prism_themes_dashboard_title">
+Themes</string>
+    <string name="prism_statusbar_dashboard_title">
+StatusBar</string>
+    <string name="prism_qs_dashboard_title">
+Quick Settings</string>
+    <string name="prism_system_dashboard_title">
+System</string>
 </resources>
