@@ -26,19 +26,23 @@ import android.preference.Preference;
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
 import com.android.settings.search.BaseSearchIndexProvider;
+import com.android.settingslib.core.AbstractPreferenceController;
+import com.android.settingslib.core.lifecycle.Lifecycle;
 import com.android.settingslib.search.SearchIndexable;
 import com.android.internal.logging.nano.MetricsProto;
+import com.android.settings.dashboard.DashboardFragment;
 
 import java.util.ArrayList;
 import java.util.List;
 
 @SearchIndexable(forTarget = SearchIndexable.ALL & ~SearchIndexable.ARC)
-public class PrismSettings extends SettingsPreferenceFragment {
+public class PrismSettings extends DashboardFragment {
+
+    private static final String LOG_TAG = "Prism";
 
     @Override
-    public void onCreate(Bundle icicle) {
-        super.onCreate(icicle);
-        addPreferencesFromResource(R.xml.prism_settings);
+    protected int getPreferenceScreenResId() {
+        return R.xml.prism_settings;
     }
 
       @Override
@@ -46,10 +50,39 @@ public class PrismSettings extends SettingsPreferenceFragment {
         return MetricsProto.MetricsEvent.PRISM;
     }
 
+    @Override
+    public void onStart() {
+        super.onStart();
+    }
+
+    @Override
+    protected String getLogTag() {
+        return LOG_TAG;
+    }
+
+    @Override
+    protected List<AbstractPreferenceController> createPreferenceControllers(Context context) {
+        return buildPreferenceControllers(context, this /* fragment */, getSettingsLifecycle());
+    }
+    
+    private static List<AbstractPreferenceController> buildPreferenceControllers(
+            Context context, PrismSettings fragment, Lifecycle lifecycle) {
+        final List<AbstractPreferenceController> controllers = new ArrayList<>();
+        controllers.add(new PrismSettingsController(context));
+        return controllers;
+    }
+
     /**
      * For Search.
      */
 
     public static final BaseSearchIndexProvider SEARCH_INDEX_DATA_PROVIDER =
-            new BaseSearchIndexProvider(R.xml.prism_settings);
+            new BaseSearchIndexProvider(R.xml.prism_settings) {
+                @Override
+                public List<AbstractPreferenceController> createPreferenceControllers(
+                        Context context) {
+                    return buildPreferenceControllers(context, null /* fragment */,
+                            null /* lifecycle */);
+                }
+            };
 }

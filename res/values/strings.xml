@@ -8,4 +8,14 @@
     <string name="prism_statusbar_dashboard_title">StatusBar</string>
     <string name="prism_qs_dashboard_title">Quick Settings</string>
     <string name="prism_system_dashboard_title">System</string>
+
+    <!--Prism Ui-->
+    <string name="themes_title">Themes</string>
+    <string name="prismatic_summary">Design your icons, themes, colour</string>
+    <string name="lockscreen_title">Lock Screen</string>
+    <string name="lockscreen_summary">Customised your LockScreen</string>
+    <string name="quick_settings_title">Controll Center</string>
+    <string name="quick_settings_summary">Customised QuickSettings</string>
+    <string name="status_title">Status Bar</string>
+    <string name="status_summary">Tuner, Battery, Logos</string>
 </resources>
