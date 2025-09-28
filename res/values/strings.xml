@@ -18,4 +18,5 @@
     <string name="quick_settings_summary">Customised QuickSettings</string>
     <string name="status_title">Status Bar</string>
     <string name="status_summary">Tuner, Battery, Logos</string>
+    <string name="system_dashboard_summary">System Setting</string>
 </resources>
