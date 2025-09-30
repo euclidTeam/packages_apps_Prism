@@ -19,4 +19,18 @@
     <string name="status_title">Status Bar</string>
     <string name="status_summary">Tuner, Battery, Logos</string>
     <string name="system_dashboard_summary">System Setting</string>
+    <string name="prism_spoofing_dashboard_title">Spoofing</string>
+    <string name="spoofing_dashboard_summary">Spoofing releated Settings</string>
+     <string name="about_title">euclidOS</string>
+    <string name="about_summary">About our ROM</string>
+
+    <!-- About -->
+    <string name="about_info">euclidOS is a custom ROM focused on minimalism, stability, and security. It delivers a clean, bloat-free experience with reliable performance and enhanced privacy for everyday users.</string>
+    <string name="about_website_title">Website</string>
+    <string name="about_website_summary">Visit our site for updates</string>
+    <string name="about_github_title" translatable="false">GitHub</string>
+    <string name="about_github_summary">Browse our code on GitHub</string>
+    <string name="about_founders_title">Founders</string>
+    <string name="about_founder_1_title" translatable="false">Mrick343</string>
+    <string name="about_founder_1_summary" translatable="false">Founder / Lead Developer</string>
 </resources>
