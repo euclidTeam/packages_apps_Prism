@@ -12,4 +12,11 @@ SPDX-License-Identifier: Apache-2.0
     <string name="global_actions_advanced_reboot_title">Enable advanced restart</string>
     <string name="global_actions_advanced_reboot_summary">Show options for other bootable components in power menu</string>
 
+    <!-- Additional settings category -->
+    <string name="additional_settings_category_title">Additional Settings</string>
+
+    <!-- Ignore window secure -->
+    <string name="ignore_window_secure_title">Ignore window secure flags</string>
+    <string name="ignore_window_secure_summary">Remove screenshot and screenrecord limits for all apps. This can be convenient in some cases but may lead to privacy leaks.</string>
+
 </resources>
