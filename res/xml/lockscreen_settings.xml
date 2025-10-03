@@ -13,4 +13,9 @@
         android:defaultValue="true" />
 
 
+    <!-- available in pin/pattern/password -->
+    <SwitchPreferenceCompat
+        android:key="power_button_instantly_locks"
+        android:title="@string/lockpattern_settings_enable_power_button_instantly_locks" />
+
 </PreferenceScreen>
