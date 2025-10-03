@@ -6,4 +6,10 @@
     android:title="@string/prism_system_dashboard_title">
 
 
+    <com.android.settings.custom.preference.SystemSettingSwitchPreference
+        android:key="advanced_reboot"
+        android:title="@string/global_actions_advanced_reboot_title"
+        android:summary="@string/global_actions_advanced_reboot_summary"
+        android:defaultValue="false" />
+
 </PreferenceScreen>
