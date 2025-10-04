@@ -27,6 +27,12 @@
             android:summary="@string/display_cutout_force_fullscreen_summary"
             android:fragment="com.prism.settings.fragments.system.DisplayCutoutForceFullscreenSettings"
             settings:controller="com.prism.settings.fragments.system.DisplayCutoutForceFullscreenPreferenceController" />
+
+        <com.android.settings.custom.preference.GlobalSettingSwitchPreference
+            android:key="hide_screen_capture_status"
+            android:title="@string/hide_screen_capture_status_title"
+            android:summary="@string/hide_screen_capture_status_summary"
+            android:defaultValue="false"/>
     </PreferenceCategory>
 
     
