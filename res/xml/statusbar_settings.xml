@@ -33,5 +33,12 @@
             android:title="@string/wifi_standard_icon_title"
             android:summary="@string/wifi_standard_icon_summary"
             android:defaultValue="false"/>
+            
+       <Preference
+            android:key="battery_icon"
+            android:title="@string/battery_icon_title"
+            android:summary="@string/battery_icon_summary"
+            android:fragment="com.prism.settings.fragments.statusbar.BatteryIconSettings" />
+        
 
 </PreferenceScreen>
