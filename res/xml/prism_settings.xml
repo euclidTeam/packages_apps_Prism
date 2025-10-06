@@ -30,7 +30,7 @@ android:title="@string/prism_dashboard_title">
   android:title="@string/prism_spoofing_dashboard_title"
   android:summary="@string/spoofing_dashboard_summary"
   android:fragment="com.prism.settings.fragments.spoofing.Spoofing"
-  android:icon="@drawable/ic_spoofing"/>
+  android:icon="@drawable/ic_homepage_spoofing"/>
 
   <!--About-->
   <Preference
@@ -38,6 +38,6 @@ android:title="@string/prism_dashboard_title">
   android:title="@string/about_title"
   android:summary="@string/about_summary"
   android:fragment="com.prism.settings.fragments.about.About"
-  android:icon="@drawable/ic_euclid"/>
+  android:icon="@drawable/ic_homepage_about"/>
 
 </PreferenceScreen>
