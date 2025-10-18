@@ -5,5 +5,10 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:title="@string/prism_system_dashboard_title">
 
+    <Preference
+        android:key="button_category"
+        android:fragment="com.prism.settings.fragments.system.ButtonSettings"
+        android:title="@string/button_title" />
+
 
 </PreferenceScreen>
