@@ -5,5 +5,19 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:title="@string/prism_themes_dashboard_title">
 
+      <PreferenceCategory
+        android:key="themes_monet_category"
+        android:title="@string/themes_monet_title">
+
+        <!-- Monet Settings -->
+        <Preference
+            android:key="monet_settings"
+            android:title="@string/monet_settings_title"
+            android:summary="@string/monet_settings_sammary"
+            android:fragment="com.prism.settings.fragments.themes.MonetSettings" />
+
+    </PreferenceCategory>
+
+
 
 </PreferenceScreen>
