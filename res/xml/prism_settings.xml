@@ -26,9 +26,9 @@ android:title="@string/prism_dashboard_title">
 
   <!--Spoofing-->
   <Preference
-  android:key="spoofing_category"
-  android:title="@string/prism_spoofing_dashboard_title"
-  android:summary="@string/spoofing_dashboard_summary"
+  android:key="spoofing"
+  android:title="@string/spoofing_title"
+  android:summary="@string/spoofing_summary"
   android:fragment="com.prism.settings.fragments.spoofing.Spoofing"
   android:icon="@drawable/ic_homepage_spoofing"/>
 
