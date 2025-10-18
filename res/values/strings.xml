@@ -78,4 +78,8 @@
     <string name="gameprops_summary">Enables per-app game spoofing options</string>
     <string name="gameprops_load_json_title">Select per-app game props JSON file</string>
     <string name="gameprops_load_json_summary">Choose the JSON file to be used to spoof more games</string>
+
+    <!-- Keybox Data -->
+    <string name="keybox_data_title">Select keybox XML file</string>
+    <string name="keybox_data_summary">Choose the keybox XML file to spoof key attestation system-wide for all apps. Click the delete button to remove the keybox data and disable spoofing</string>
 </resources>

@@ -9,39 +9,63 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.ContentResolver;
 import android.content.Context;
+import android.content.pm.ApplicationInfo;
+import android.content.pm.PackageManager;
 import android.content.res.Resources;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.view.View;
 import android.os.Handler;
 import android.os.SystemProperties;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
+import android.widget.ArrayAdapter;
+import android.widget.EditText;
+import android.widget.LinearLayout;
+import android.widget.ListView;
 import android.widget.Toast;
+import android.provider.Settings;
 
 import androidx.preference.Preference;
+import androidx.preference.Preference.OnPreferenceChangeListener;
 import androidx.preference.PreferenceCategory;
 import androidx.preference.PreferenceScreen;
 
+import com.android.internal.logging.nano.MetricsProto.MetricsEvent;
 import com.android.internal.logging.nano.MetricsProto;
 import com.android.internal.util.euclid.SystemRestartUtils;
 import com.android.settings.R;
-import com.android.settings.SettingsPreferenceFragment;
 import com.android.settings.search.BaseSearchIndexProvider;
+import com.android.settings.SettingsPreferenceFragment;
 import com.android.settingslib.search.SearchIndexable;
-
-import com.euclid.support.preferences.SystemPropertySwitchPreference;
-import com.prism.settings.utils.Utils;
-
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
 
 import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.nio.charset.StandardCharsets;
+import java.util.Arrays;
+import java.util.Comparator;
+import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
+import java.util.Set;
+import java.util.stream.Collectors;
+
+import com.euclid.support.preferences.SystemPropertySwitchPreference;
+import com.prism.settings.utils.Utils;
+
+import com.prism.settings.preferences.KeyboxDataPreference;
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
+import androidx.preference.Preference;
+
+ import org.json.JSONArray;
+ import org.json.JSONException;
+ import org.json.JSONObject;
 
 @SearchIndexable
 public class Spoofing extends SettingsPreferenceFragment implements Preference.OnPreferenceChangeListener {
@@ -61,6 +85,7 @@ public class Spoofing extends SettingsPreferenceFragment implements Preference.O
     private static final String SYS_SNAP_SPOOF = "persist.sys.snap.enable";
     private static final String SYS_VENDING_SPOOF = "persist.sys.vending.enable";
     private static final String SYS_ENABLE_TENSOR_FEATURES = "persist.sys.features.tensor";
+    private static final String KEYBOX_DATA_KEY = "keybox_data_setting";
 
     private Preference mGamePropsJsonFilePreference;
     private Preference mPifJsonFilePreference;
@@ -74,6 +99,8 @@ public class Spoofing extends SettingsPreferenceFragment implements Preference.O
     private SystemPropertySwitchPreference mSnapSpoof;
     private SystemPropertySwitchPreference mVendingSpoof;
     private SystemPropertySwitchPreference mTensorFeaturesToggle;
+    private ActivityResultLauncher<Intent> mKeyboxFilePickerLauncher;
+    private KeyboxDataPreference mKeyboxDataPreference;
 
     private Handler mHandler;
 
@@ -139,6 +166,19 @@ public class Spoofing extends SettingsPreferenceFragment implements Preference.O
             return true;
         });
 
+        mKeyboxFilePickerLauncher = registerForActivityResult(
+             new ActivityResultContracts.StartActivityForResult(),
+             result -> {
+                 if (result.getResultCode() == Activity.RESULT_OK && result.getData() != null) {
+                     Uri uri = result.getData().getData();
+                     Preference pref = findPreference(KEYBOX_DATA_KEY);
+                     if (pref instanceof KeyboxDataPreference) {
+                         ((KeyboxDataPreference) pref).handleFileSelected(uri);
+                     }
+                 }
+             }
+         );
+
         Preference showPropertiesPref = findPreference("show_pif_properties");
         if (showPropertiesPref != null) {
             showPropertiesPref.setOnPreferenceClickListener(preference -> {
@@ -172,6 +212,15 @@ public class Spoofing extends SettingsPreferenceFragment implements Preference.O
             }
         }
     }
+
+    @Override
+     public void onViewCreated(View view, Bundle savedInstanceState) {
+         super.onViewCreated(view, savedInstanceState);
+         mKeyboxDataPreference = findPreference(KEYBOX_DATA_KEY);
+         if (mKeyboxDataPreference != null) {
+             mKeyboxDataPreference.setFilePickerLauncher(mKeyboxFilePickerLauncher);
+         }
+     }
 
     private void showPropertiesDialog() {
         StringBuilder properties = new StringBuilder();
