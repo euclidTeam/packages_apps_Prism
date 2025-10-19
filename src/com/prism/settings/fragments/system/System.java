@@ -36,6 +36,28 @@ import java.util.Collections;
 
 public class System extends SettingsPreferenceFragment implements Preference.OnPreferenceChangeListener {
 
+    private static final String SMART_PIXELS = "smart_pixels";
+
+    private Preference mSmartPixels;
+
+    @Override
+    public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
+        setPreferencesFromResource(R.xml.system_settings, rootKey);
+
+        getActivity().setTitle(R.string.prism_system_dashboard_title);
+
+        final PreferenceScreen prefScreen = getPreferenceScreen();
+
+        // Smart Pixels preference setup
+        mSmartPixels = findPreference(SMART_PIXELS);
+        boolean mSmartPixelsSupported = getResources().getBoolean(
+                com.android.internal.R.bool.config_supportSmartPixels);
+
+        if (!mSmartPixelsSupported && mSmartPixels != null) {
+            prefScreen.removePreference(mSmartPixels);
+        }
+    }
+
     @Override
     public boolean onPreferenceChange(Preference preference, Object newValue) {
         return false;
@@ -46,11 +68,4 @@ public class System extends SettingsPreferenceFragment implements Preference.OnP
         return MetricsProto.MetricsEvent.PRISM;
     }
 
-    @Override
-    public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
-        setPreferencesFromResource(R.xml.system_settings, rootKey);
-
-        getActivity().setTitle(R.string.prism_system_dashboard_title);
-
-    }
 }
