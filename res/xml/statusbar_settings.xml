@@ -4,6 +4,13 @@
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:title="@string/prism_statusbar_dashboard_title">
+    
+    
+        <Preference
+        android:key="battery_bar_category"
+        android:fragment="com.prism.settings.fragments.statusbar.BatterySettings"
+        android:title="@string/battery_settings_title" />
+
 
 
 </PreferenceScreen>
